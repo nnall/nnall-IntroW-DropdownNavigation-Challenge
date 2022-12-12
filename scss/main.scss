@@ -1,0 +1,783 @@
+
+:root{
+    --almostWhite: hsl(0, 0%, 98%);
+    --mediumGray:hsl(0, 0%, 41%);
+    --liteGray:hsla(0, 0%, 57%, 0.356);
+    --almostBlack:hsl(0, 0%, 8%);
+    --almostBlackLite:rgb(20, 20, 20, 0.35);
+
+    --yellow:rgb(226 205 55);
+    --bluePurple:rgb(114 108 238);
+    --lightBlue:rgb(75 177 219);
+
+}
+
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    // border:1px solid green;
+    font-size:18px;
+    padding:2rem 3rem 2rem 3rem;
+    position:relative;
+    background-color: var(--almostWhite);
+    font-family: 'Epilogue', sans-serif;
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    color:var(--mediumGray);
+    // justify-content:center;
+    // transition:all .3s ease-in;
+} 
+
+
+h2, nav, .logRegBox{
+    display:inline-block;
+}
+
+h2{
+    color:var(--almostBlack);
+    font-size:40px;
+}
+
+
+
+header{
+    // position:fixed; //want to leave this as 'fixed', so that @ 1400, we don't need to set it to margin-bottom:auto just to make it stay at the top. (When we column center the <body>);
+
+
+    // display:block;
+    min-width:100%;
+
+    max-width:100%;
+    display:flex;
+    align-items:center;
+}
+
+//Parent of <ul> & .logRegBox
+nav{
+    position:relative;
+    margin-left:6rem;
+    flex:1;
+    display:flex;
+    justify-content: space-between;
+}
+
+//sibling of .logRegBox
+.navUL{
+    list-style: none;
+    display:flex;
+    max-width:min-content;
+    justify-content: left;
+    align-items:center;
+    position:relative;
+    transition:all .3s ease-in;
+
+}
+// so that absolute-positioned
+nav ul li{
+    position:relative;
+}
+
+nav a{
+    display:flex;
+    align-items:center;
+}
+
+
+// nav links, not dropdown
+nav .link:hover{
+    color:var(--almostBlack);
+}
+
+.arrow{
+    display:none;
+    margin-left:.5rem;
+    // max-width:2rem;
+}
+
+
+
+.company, .careers, .about{
+    margin-left:4rem;
+    position:relative;
+}
+
+.features, .company{
+    position:relative;
+}
+
+.features:hover, .company:hover{
+    color:var(--almostBlack);
+    position:relative;
+}
+
+.features:not(:hover) + .featuresDropdown:not(:hover) {
+    display:none;
+}
+
+.dropDown{
+    margin-top:3rem;
+    
+}
+
+.featuresDropdown, .companyDropdown{
+
+   list-style:none;
+   font-size:16px;
+   position:absolute;
+   margin-top:2.5rem;
+   margin-left:-5rem;
+   border-radius:10px;
+   font-weight:lighter;
+   background-color: var(--almostWhite);
+   filter:drop-shadow(.5rem .5rem 2rem var(--almostBlackLite));
+   
+   flex-direction:column;
+   overflow:hidden;
+   top:0rem;
+   transition-delay:500ms;
+   display:none;
+   transition:all .3s ease-in;
+
+ 
+
+   li{
+    display:flex;
+    min-width:100%;
+    max-width:100%;
+    // background-color: green;
+
+    &:hover{
+        background-color: var(--almostBlack);
+
+    }
+}
+
+
+
+    a{
+    // margin:0;
+    padding:1rem 1.6rem 1rem 1.6rem;
+    min-height:100%;
+    min-width:100%;
+    // background-color:aqua;
+
+        &:hover{
+            background-color: var(--almostBlack);
+            color:var(--almostWhite);
+        }
+   
+    }
+}
+
+
+
+
+
+
+.featuresDropdown:hover{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.featuresDropdown li:hover{
+        background-color: var(--almostBlack);
+}
+
+
+
+.featuresDropdown span{
+    display:inline-block;
+}
+.featuresDropdown{
+    margin-left:-11rem;
+
+    svg{
+        margin-right:1rem;
+    }   
+}
+
+.companyDropdown{
+    margin-left: -7rem;
+
+}
+.companyDropdown li{
+    min-width:9rem;
+}
+
+
+.show{
+    display:flex;
+    transition:all .3s ease-in;
+}
+
+.menuButton{
+    transform:scale(1.2);
+    z-index:5;
+    margin-right:1.5rem;
+    display:none;
+}
+
+
+
+
+// Login Box
+
+.logRegBox{
+    color:var(--mediumGray);
+    // overflow:hidden;
+}
+
+button{
+    font-family: 'Epilogue', sans-serif;
+    color:var(--mediumGray);
+    font-size:1.1rem;
+    padding:14px 22px;;
+    background-color:transparent;
+    border-radius:15px;
+    border-width:3px;
+    border-style:solid;
+    transition:all .05s ease-in;
+
+    &:hover{
+        cursor:pointer;
+        background-color: var(--mediumGray);
+        color:var(--almostWhite);
+    }
+}
+
+
+
+.login{
+    border:none;
+    margin-right:2rem;
+
+    &:hover{
+        background-color:var(--bluePurple);
+        color:var(--almostWhite);
+    }
+}
+
+/* ---------------------- Center Element Downward---------------------*/
+
+
+.center{
+    margin-top:3rem;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    min-width:80vw;
+    min-height:83vh;
+    
+}
+
+.left{
+    display:flex;
+    flex-direction:column;
+
+}
+
+h1{
+    color:var(--almostBlack);
+    font-size:6rem;
+    max-width:40rem;
+    margin-top:13rem;
+    margin-bottom:3.5rem;
+}
+
+.left p{
+    font-size:1.4rem;
+    max-width:35rem;
+    line-height:2.5rem;
+    margin-bottom:4rem;
+}
+
+.learnMore{
+    max-width:12rem;
+    font-size:1.2rem;
+    height:4rem;
+    width:30rem;
+   
+    color:var(--almostWhite);
+    background-color: var(--almostBlack);
+    border:none;
+
+    &:hover{
+        background-color: transparent;
+        border:3px solid black;
+        color:var(--almostBlack);
+    }
+}
+
+
+
+.icons{
+    position:relative;
+    list-style:none;
+    margin-top:auto;
+    display:flex;
+    flex-direction:row;
+    align-items: baseline;
+    
+
+}
+
+.icons li{
+    list-style:none;
+    display:inline-block;
+    margin-right:3rem;
+}
+
+.right{
+    margin-left:10vw;
+    flex:1;
+    background-image:url(../images/image-hero-desktop.png);
+    background-repeat:no-repeat;
+    
+    
+    background-size:contain;
+    background-position:center;
+}
+
+
+.rightImgEl,.rightImgElMobile{
+    display:none;
+}
+
+
+
+.attribution{
+    position:absolute;
+    bottom:1rem;
+    
+}
+
+a:link,
+a:visited{
+    color:var(--mediumGray);
+    text-decoration:none;
+}
+
+.attribution a:hover{
+    color:var(--lightBlue);
+}
+
+.screen{
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:3;              //so, above the z-index:4 header, and the lower <body> 
+    min-height:100vh;
+    min-width:100vw;
+    background-color: var(--almostBlack);
+    opacity:.7;
+}
+
+
+
+/*---------------------------------- MOBILE BREAKPOINTS --------------------------------*/ 
+
+
+@media(max-width:1700px){
+    
+    .center{
+        margin-top:2.5rem;
+    }
+    
+    
+    h1{
+        font-size:5rem;
+        margin-top:8rem;
+        max-width:33rem;
+    }
+
+    .left p{
+        max-width:32rem;
+        font-size:1.2rem;
+    }
+
+    nav{
+        font-size:16px;
+    }
+
+    .right{
+        margin-left:10vw;
+        // flex:0 1 auto;
+        background-image:url(../images/image-hero-desktop.png);
+        background-size:contain;
+        // height:100%;
+        background-repeat:no-repeat;
+        // background-position:center;
+    }
+}   
+
+@media(max-width:1550px){
+    .right{
+       background-image: none;
+       position:relative;
+       
+
+      
+    }
+
+    .rightImgEl{
+        display:inline-block;
+        // margin-left:10vw;
+        max-height:49rem;
+        // align-self:flex-end;
+        // vertical-align:bottom;
+
+    }
+}
+
+@media(max-width:1400px){
+    //do something with .icons so that it doesn't break
+    //lower H1 again
+    //lower <p> again
+    //reduce
+
+    body{
+        padding:1.5rem 1.5rem 2rem 1.5rem;   
+        justify-content: center;;  //this puhes <header> AND <center> toward the middle (.attribution is already out of <body>'s flow)
+    }
+
+    header{
+        margin-bottom:auto; // we use this to align header back to top of <body> (still subject to padding top of <body>). Still in "flow" of <body> 
+        position:relative;
+
+    }
+    //one approach: header position:fixed and margin-top:2 rem or something - just like the footer, leaving only the <center> div in the flow of <body>
+    // another approach: header remains position:relative
+
+    nav{
+        margin-left:3.5rem;
+    }
+
+    .company, .careers, .about{
+        margin-left:2rem;
+    }
+
+    .center{           //now getting pushed downward by <header>'s margin-bottom:relative; setting. 
+        // margin-top:0;
+
+        position:fixed; //takes it out of the flow of <body> and 
+        min-height:unset;
+        min-width:80vw;
+        justify-content: unset;
+    }
+
+
+    .left{
+        min-width:45vw;
+        justify-content:center;
+    }
+
+    h1{
+        font-size:3.8rem;
+        max-width:25rem;
+        min-width:25rem;
+        margin-top:8vw;
+        margin-bottom:3vw;
+    }
+
+    .left p{
+        max-width:36vw;
+        font-size:1.1rem;
+        line-height:2.25rem;
+        margin-bottom:3vw;
+    }
+
+    .learnMore{
+        font-size:1.1rem;
+        height:unset;
+        width:unset;
+        padding:14px 13px;
+
+        &:hover{
+            background-color: transparent;
+            border:2px solid black;
+            color:var(--almostBlack);
+        }
+    }
+
+    .icons li{
+        margin-right:1.5rem;
+        transform:scale(.75);
+    }
+
+    .right{
+        margin-left:0;
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rightImgEl{      
+        max-height:50vw;
+    }
+}
+
+@media(max-width:1000px){
+    // body{
+    //     padding:2rem 2vw 2rem 2vw;
+    // }
+
+    .left{
+        min-width:40vw;
+        max-width:42vw;
+    }
+
+    .left p{
+        font-size:1.5vw;
+        margin-bottom:2vw;
+        line-height:2rem
+    }
+
+    .learnMore{
+        font-size:1.5vw;
+        height:unset;
+        width:14vw;
+        padding:1.4vw 1vw;
+
+        &:hover{
+            background-color: transparent;
+            border:2px solid black;
+            color:var(--almostBlack);
+        }
+    }
+
+    .icons li{
+        transform:scale(.6);
+        margin-right:.2rem;
+    }
+
+    h1{
+        font-size:5vw;
+
+        max-width:33vw;
+        min-width:33vw;
+    
+    }
+
+    nav{
+        font-size:14px;
+        margin-left:3.5vw;
+    }
+
+    .company, .careers, .about{
+        margin-left:2.4vw;
+    }
+
+    button{
+        font-size:14px
+    }
+
+    .login{
+        margin-right:1rem;
+    }
+
+    .login, .register{
+        padding:10px 16px;
+    }
+
+
+    .right{
+        align-items: flex-end;
+    }
+
+}
+
+@media(max-width:900px){
+
+    body{
+        padding-top:.75rem;
+        padding-bottom:0;
+    }
+
+    header{
+        // margin-bottom:0;
+        z-index:4;
+        min-width:32rem;
+        // width:32rem;
+        justify-content: space-between;
+        
+        overflow:visible; //to allow for pop-out <nav>
+
+    }
+
+    //show the button container (was previously display:none)
+    .menuButton{
+        display:unset;          //replace 'display:none' with whatever default display setting would've been
+        
+    }
+
+    .menuButton svg:hover{
+        cursor:pointer;
+    }
+
+    // Hide
+    nav, .menuClose, .menuOpen{
+        display:none;
+    }
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+        justify-content: unset;
+        background-color:var(--almostWhite);
+        position:absolute;
+        border:1px solid purple;
+        right:0;
+        top:-1.5rem; //counteract <body> padding-top:1.5rem; so that it aligns with top of viewport. 
+        min-height:100vh;
+        min-width:20rem;
+        padding:6rem 0 0 2.5rem;
+        
+    }
+
+    .company, .careers, .about{
+        margin-left:0;
+    }
+
+
+    .navUL{
+        align-self: flex-start;
+        font-weight: 500;
+        flex-direction:column;
+        align-items:flex-start; //overwrites align-items:center from when was flex-row; (for vertical center)
+        justify-content:space-between;
+        border:1px solid blue;
+        font-size:1.4rem;
+        min-height: 12rem;
+        // margin-top:3rem;
+    }
+
+
+
+    .logRegBox{ 
+        margin-top:3rem;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        
+
+    }
+
+
+
+
+    //------------ Utility Classes -------------------
+
+    // turn displays on and off for <nav> and .logRegBox items
+    .showBtn{
+        display:flex;
+       
+    }
+
+    .showScreen{
+        display:block;
+    }
+
+    .center{
+        margin-bottom:-2.25rem;
+        margin-top:0;
+
+        // margin-bottom:0;
+        flex-direction:column-reverse;
+        align-items:center;
+       
+        // min-height:80vh;
+        max-height:max-content;
+        max-width:min-content;;
+        min-width:unset;
+        // margin-top:6vw;
+        // border:1px solid blue;
+    }
+
+
+    .left, .right{
+        align-items:center;
+    }
+    .right{
+       flex:unset;
+    }
+
+    
+
+    .left{
+        // min-width:53vw; 
+        min-width:unset;
+        max-width:unset;;
+        min-width:32rem;
+        min-height:28rem;
+    }
+
+    h1{
+        text-align:center;
+        // margin-top:3.5vw;
+        margin-top:3.5rem;
+        min-width:unset;
+        max-width: unset;
+        font-size:3rem;
+        // min-width:50vw;
+
+        margin-bottom:2rem;
+    }
+
+    h2{
+        margin-left:1.5rem;
+    }
+
+    // Desktop image
+    .rightImgEl{
+        display:none;
+    }
+
+    // MObile Image
+    //this image 
+    .rightImgElMobile{
+        display:inline-block;
+        
+        // max-height:40vw;
+        max-height:24rem;
+        
+    }
+
+    .left p{
+        text-align:center;
+        max-width:unset;
+        font-size:1rem;
+        line-height:2rem;
+        width:28rem;
+        margin-bottom:1.75rem;
+    }
+
+    .learnMore{
+        width:14rem;
+        padding:1.4rem 1rem;
+
+        // margin-bottom:5rem;
+        font-size:1rem;
+    }
+
+    // .navLogRegMobile{
+    //     display:
+    // }
+
+}
+
+
+@media(max-width:520){
+    //turn all hard values into vw in current sizing proportions
+}
